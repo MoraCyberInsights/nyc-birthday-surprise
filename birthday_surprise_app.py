@@ -7,16 +7,63 @@ trip_title = "🗽 Surprise NYC Adventure!"
 departure_date = datetime(2025, 6, 21)
 days_left = (departure_date - datetime.now()).days
 
-itinerary = [
-    "🛫 Flight to NYC – Pack your bags!",
-    "🏨 Check-in at hotel – Lower East Side",
-    "🗽 Visit the Statue of Liberty – A true American icon.",
-    "🎭 Broadway Show: Stranger Things – Orchestra seats, baby!",
-    "🌇 Food - Carbone, Pastis, Lafayette",
-    "🖼️ Explore The Met Museum – Art, culture, and history.",
-    "🛍️ Shopping in SoHo – Fashion capital vibes.",
-    "🍎 Picnic in Central Park – Romantic and relaxing.",
-    "🛫 Return Home – With memories of a lifetime 💕"
+if show_surprise:
+    st.header("🗽 Trip Itinerary: June 21–24")
+
+    with st.expander("📅 Saturday, June 21"):
+        st.markdown("""
+        - ✈️ Flight leaves Austin at **6:00 AM** (arrive at airport by 4:30 AM)
+        - 🚗 Leave home by **4:00 AM**, park at Park & Ride
+        - 🛬 Arrive at Newark Airport **10:43 AM**
+        - 🚕 Transit to Manhattan, arrive around **11:40 AM**
+        - 🏨 Early Check-In @ **CitizenM Bowery** – 12:30 PM
+        - 📚 Visit **Strand Bookstore** – Pick up "Walking New York" book
+        - 🍽️ Dinner Reservation @ **Pastis** – 8:00 PM
+        """)
+
+    with st.expander("📅 Sunday, June 22"):
+        st.markdown("""
+        - 🍳 Breakfast Reservation @ **Lafayette** – 9:30 AM
+        - 🛍️ Free time to explore from 11:00 AM to 5:00 PM
+        - 🍕 Lunch @ **Ceres Pizza** – 1:00 PM (expect a line!)
+        - 🍴 Light dinner or snack before the show
+        - 🎭 **Stranger Things: The First Shadow** @ Marquis Theatre – 7:00 PM
+        - 🍝 Late Dinner @ **Carbone** – 11:15 PM
+        """)
+
+    with st.expander("📅 Monday, June 23"):
+        st.markdown("""
+        - ☕ Morning coffee adventure
+        - 🥯 Breakfast @ **Katz's Deli**
+        - 🍷 Dinner Reservation @ **Raoul’s** (French Bistro) – 9:45 PM
+        """)
+
+    with st.expander("📅 Tuesday, June 24"):
+        st.markdown("""
+        - 🥞 Brunch Reservation @ **Friend of a Farmer (Gramercy)** – 10:00 AM
+        - ✈️ Leave Manhattan by **5:00 PM** to arrive at airport by 7:00 PM
+        - 🛫 Flight to Austin departs **9:00 PM**, arrives **12:00 AM**
+        """)
+
+    st.header("📍 Things To Do (Anytime!)")
+    with st.expander("🗺️ Our NYC Bucket List"):
+        st.markdown("""
+        - 🥐 Visit **Supermoon Bakehouse**
+        - 🍸 **Double Chicken Please** (80% walk-in bar)
+        - 🛍️ Shopping along **5th Ave** and **SoHo**
+        - 🌳 Picnic @ **Central Park**
+        - 🖼️ Visit the **MET**
+        - 🥟 Explore **Chinatown Dumpling Tour**:
+          - North Dumpling
+          - King Dumpling
+        - ☕ Coffee from **787 Coffee** (East Village)
+        - 🍪 **Culture Espresso** (amazing cookies)
+        - 🔐 Speakeasy @ **Please Don’t Tell**
+        - ⛴️ **Ferry from Wall St. to DUMBO**, then walk across Brooklyn Bridge
+        - 🏃‍♂️ Morning run in Central Park
+        - 🍰 Dessert from **William Greenberg Desserts**
+        """)
+
 ]
 
 # --- Page Setup ---
