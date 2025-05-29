@@ -27,7 +27,15 @@ st.markdown(f"## ✈️ Our adventure begins in **{days_left} days**!")
 st.markdown("Get ready for the magic of New York City...")
 
 # --- Reveal Itinerary ---
+# Track if the surprise has been revealed
+if "revealed" not in st.session_state:
+    st.session_state.revealed = False
+
 if st.button("🎁 Tap to Reveal NYC Schedule!"):
+    st.session_state.revealed = True
+
+if st.session_state.revealed:
+
     st.success(trip_title)
 
     st.header("🗽 Trip Itinerary: June 21–24")
