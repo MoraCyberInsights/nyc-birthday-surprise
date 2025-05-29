@@ -64,7 +64,6 @@ if show_surprise:
         - 🍰 Dessert from **William Greenberg Desserts**
         """)
 
-]
 
 # --- Page Setup ---
 st.set_page_config(
