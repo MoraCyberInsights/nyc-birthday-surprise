@@ -20,7 +20,7 @@ header_image = Image.open("images/nyc_skyline.jpg")  # Ensure this image exists 
 
 # --- Display Header ---
 st.image(header_image, use_container_width=True)
-st.markdown("<h1 style='text-align: center; color: #FF4B4B;'>Happy Birthday! 🎂💕</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #FF4B4B;'>We are going to NYC! Happy Birthday! 🎂💕</h1>", unsafe_allow_html=True)
 
 # --- Countdown ---
 st.markdown(f"## ✈️ Our adventure begins in **{days_left} days**!")
