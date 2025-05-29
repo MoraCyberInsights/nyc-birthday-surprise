@@ -27,7 +27,7 @@ st.set_page_config(
 )
 
 # --- Load Media ---
-header_image = Image.open(images/nyc_skyline.jpg")  # You must place your image in ./images
+header_image = Image.open("images/nyc_skyline.jpg")  # You must place your image in ./images
 #music_file = "audio/birthday_theme.mp3"  # Place your music file in ./audio
 
 # --- Display Header ---
