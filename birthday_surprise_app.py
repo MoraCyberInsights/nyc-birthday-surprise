@@ -20,7 +20,7 @@ header_image = Image.open("images/nyc_skyline.jpg")  # Ensure this image exists 
 
 # --- Display Header ---
 st.image(header_image, use_container_width=True)
-st.markdown("<h1 style='text-align: center; color: #FF4B4B;'>Happy Birthday, mi amor! 🎂💕</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #FF4B4B;'>Happy Birthday! 🎂💕</h1>", unsafe_allow_html=True)
 
 # --- Countdown ---
 st.markdown(f"## ✈️ Our adventure begins in **{days_left} days**!")
@@ -85,6 +85,47 @@ if st.button("🎁 Tap to Reveal NYC Schedule!"):
         - 🏃‍♂️ Morning run in Central Park
         - 🍰 Dessert from **William Greenberg Desserts**
         """)
+
+    # --- Slideshow Section ---
+    st.header("🖼️ NYC Moodboard")
+
+    image_paths = [
+    "images/Stranger Things.jpg",
+    "images/CitizenM.jpg",
+    "images/CeresPizza.jpg",
+    "images/Katz.jpg",
+    "images/Lafayette.jpg",
+	"images/Carbone.webp",
+	"images/Pastis.webp",
+    ]
+
+    captions = [
+    "Stranger Things",
+    "CitizenM Bowery Hotel",
+    "Ceres Pizza",
+    "Katz's Delicatessen",
+    "Lafayette",
+	"Carbone",
+	"Pastis"
+    ]
+
+    # Use session state to track the current image index
+    if "slide_index" not in st.session_state:
+    st.session_state.slide_index = 0
+
+    col1, col2, col3 = st.columns([1, 6, 1])
+
+    with col1:
+    if st.button("⬅️"):
+        st.session_state.slide_index = (st.session_state.slide_index - 1) % len(image_paths)
+
+    with col3:
+    if st.button("➡️"):
+        st.session_state.slide_index = (st.session_state.slide_index + 1) % len(image_paths)
+
+    # Display the current image
+    img = Image.open(image_paths[st.session_state.slide_index])
+    st.image(img, use_container_width=True, caption=captions[st.session_state.slide_index])
 
     st.markdown("---")
     st.markdown("### 💌 Una aventura para el amor de mi vida. I can't wait to experience this with you. Thank you for being my everything. ❤️")
