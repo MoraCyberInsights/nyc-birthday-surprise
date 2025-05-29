@@ -110,18 +110,18 @@ if st.button("🎁 Tap to Reveal NYC Schedule!"):
     ]
 
     # Use session state to track the current image index
-    if "slide_index" not in st.session_state:
-    st.session_state.slide_index = 0
+        if "slide_index" not in st.session_state:
+        st.session_state.slide_index = 0
 
-    col1, col2, col3 = st.columns([1, 6, 1])
+        col1, col2, col3 = st.columns([1, 6, 1])
 
-    with col1:
-    if st.button("⬅️"):
-        st.session_state.slide_index = (st.session_state.slide_index - 1) % len(image_paths)
+        with col1:
+            if st.button("⬅️"):
+            st.session_state.slide_index = (st.session_state.slide_index - 1) % len(image_paths)
 
-    with col3:
-    if st.button("➡️"):
-        st.session_state.slide_index = (st.session_state.slide_index + 1) % len(image_paths)
+            with col3:
+                if st.button("➡️"):
+                st.session_state.slide_index = (st.session_state.slide_index + 1) % len(image_paths)
 
     # Display the current image
     img = Image.open(image_paths[st.session_state.slide_index])
