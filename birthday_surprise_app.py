@@ -44,7 +44,7 @@ body {
 st.markdown(parallax_bg, unsafe_allow_html=True)
 
 # --- Load Personal Image ---
-personal_image = Image.open("images/us.jpg")  # Replace with your actual image path
+personal_image = Image.open("images/us_together.jpg")  # Replace with your actual image path
 st.image(personal_image, use_container_width=True)
 
 # --- Greeting Message ---
