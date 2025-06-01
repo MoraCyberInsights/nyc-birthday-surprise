@@ -1,6 +1,7 @@
 import streamlit as st
 from datetime import datetime
 from PIL import Image
+import base64
 
 # --- Customization Settings ---
 trip_title = "🗽 Surprise NYC Adventure!"
@@ -14,34 +15,55 @@ st.set_page_config(
     layout="centered"
 )
 
-# --- Session State Initialization ---
-if "destination_revealed" not in st.session_state:
-    st.session_state.destination_revealed = False
-if "slide_index" not in st.session_state:
-    st.session_state.slide_index = 0
+# --- Parallax Background CSS ---
+parallax_bg = """
+<style>
+body {
+    background-image: url('https://https://raw.githubusercontent.com/MoraCyberInsights/nyc-birthday-surprise/refs/heads/main/images/nyc_skyline.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.block-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    border-radius: 15px;
+}
+@media (max-width: 768px) {
+    .stButton button {
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+    .st-expanderHeader {
+        font-size: 18px !important;
+    }
+}
+</style>
+"""
+st.markdown(parallax_bg, unsafe_allow_html=True)
 
-# --- Personal Photo for Opening ---
-personal_photo = Image.open("images/us_together.jpg")
+# --- Load Personal Image ---
+personal_image = Image.open("images/us.jpg")  # Replace with your actual image path
+st.image(personal_image, use_container_width=True)
 
-# --- Conditional Display ---
-if not st.session_state.destination_revealed:
-    st.image(personal_photo, use_container_width=True)
-    st.markdown("<h1 style='text-align: center; color: #FF4B4B;'>Happy Birthday! 🎂💕</h1>", unsafe_allow_html=True)
-    st.markdown("## 💝 I have something special planned for you.")
-    st.markdown(f"### 🎈 The big surprise is in **{days_left} days**...")
+# --- Greeting Message ---
+st.markdown("<h1 style='text-align: center; color: #FF4B4B;'>Happy Birthday! 🎂💕</h1>", unsafe_allow_html=True)
 
-    if st.button("🎁 Tap to Reveal the Surprise Destination!"):
-        st.session_state.destination_revealed = True
-        st.balloons()
+# --- Destination Reveal ---
+if "reveal_destination" not in st.session_state:
+    st.session_state.reveal_destination = False
 
-# --- After Reveal ---
-if st.session_state.destination_revealed:
-    nyc_header = Image.open("images/nyc_skyline.jpg")
-    st.image(nyc_header, use_container_width=True)
+if not st.session_state.reveal_destination:
+    if st.button("🎁 Tap to Reveal Your Birthday Trip!"):
+        st.session_state.reveal_destination = True
 
-    st.markdown("<h1 style='text-align: center; color: #1E90FF;'>We're Going to New York City! 🗽</h1>", unsafe_allow_html=True)
-    st.markdown(f"## ✈️ Our adventure begins in **{days_left} days**!")
+if st.session_state.reveal_destination:
+    st.markdown(f"## ✈️ We're going to **New York City!** 🎉")
+    st.markdown(f"### {trip_title}")
+    st.markdown(f"Our adventure begins in **{days_left} days**! Get ready for the magic of NYC...")
 
+    # --- Itinerary Reveal ---
     st.header("🗽 Trip Itinerary: June 21–24")
 
     with st.expander("📅 Saturday, June 21"):
@@ -121,21 +143,23 @@ if st.session_state.destination_revealed:
         "Pastis"
     ]
 
+    if "slide_index" not in st.session_state:
+        st.session_state.slide_index = 0
+
     col1, col2, col3 = st.columns([1, 6, 1])
 
     with col1:
-        if st.button("⬅️"):
+        if st.button("⬅️", key="left"):
             st.session_state.slide_index = (st.session_state.slide_index - 1) % len(image_paths)
 
     with col3:
-        if st.button("➡️"):
+        if st.button("➡️", key="right"):
             st.session_state.slide_index = (st.session_state.slide_index + 1) % len(image_paths)
 
-    # Display the current image
-    img = Image.open(image_paths[st.session_state.slide_index])
-    st.image(img, use_container_width=True, caption=captions[st.session_state.slide_index])
+    with col2:
+        img = Image.open(image_paths[st.session_state.slide_index])
+        st.image(img, use_container_width=True, caption=captions[st.session_state.slide_index])
 
-    # --- Closing Message ---
     st.markdown("---")
     st.markdown("### 💌 Una aventura para el amor de mi vida. I can't wait to experience this with you. Thank you for being my everything. ❤️")
 
