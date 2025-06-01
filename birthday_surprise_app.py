@@ -26,20 +26,20 @@ if "reveal_trip" not in st.session_state:
     st.session_state.reveal_trip = False
 
 if not st.session_state.reveal_trip:
-    if st.button("🎁 Tap to Reveal Surprise Destination!"):
+    if st.button("🎁 Tap twice to Reveal Surprise Destination!"):
         st.session_state.reveal_trip = True
 else:
     st.image(header_image, use_container_width=True)
     st.markdown(f"## ✈️ We’re going to **New York City** in **{days_left} days**! 🎉")
-    st.markdown("Get ready for the magic of NYC...")
+    st.markdown("Get ready! I planned a weekend for us. Te amo!")
 
     # --- Trip Itinerary ---
-    st.header("🗽 Trip Itinerary: June 21–24")
+    st.header("🗽 Trip Itinerary")
 
     with st.expander("📅 Saturday, June 21"):
         st.markdown("""
+        - 🚗 Leave home by **4:00 AM**, park at Park & Ride        
         - ✈️ Flight leaves Austin at **6:00 AM** (arrive at airport by 4:30 AM)
-        - 🚗 Leave home by **4:00 AM**, park at Park & Ride
         - 🛬 Arrive at Newark Airport **10:43 AM**
         - 🚕 Transit to Manhattan, arrive around **11:40 AM**
         - 🏨 Early Check-In @ **CitizenM Bowery** – 12:30 PM
@@ -88,6 +88,9 @@ else:
         - ⛴️ **Ferry from Wall St. to DUMBO**, then walk across Brooklyn Bridge
         - 🏃‍♂️ Morning run in Central Park
         - 🍰 Dessert from **William Greenberg Desserts**
+        - 🍦 Little treat from **Dudleys NYC** (truffle fries and soft serve)
+        - 🍕 Highly rated pizza from **John's of Bleecker Street**
+        - 🗽 Many others I have saved on my phone
         """)
 
     # --- Slideshow Section ---
@@ -95,21 +98,21 @@ else:
 
     image_paths = [
         "images/Stranger Things.jpg",
-        "images/CitizenM.jpg",
+        "images/Carbone.webp",
         "images/CeresPizza.jpg",
         "images/Katz.jpg",
         "images/Lafayette.jpg",
-        "images/Carbone.webp",
+        "images/CitizenM.jpg",
         "images/Pastis.webp",
     ]
 
     captions = [
         "Stranger Things",
-        "CitizenM Bowery Hotel",
+        "Carbone",
         "Ceres Pizza",
         "Katz's Delicatessen",
         "Lafayette",
-        "Carbone",
+        "CitizenM Bowery Hotel",
         "Pastis"
     ]
 
