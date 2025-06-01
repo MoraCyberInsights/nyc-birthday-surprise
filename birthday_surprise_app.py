@@ -117,24 +117,23 @@ else:
         st.session_state.slide_index = 0
 
 # Instead of buttons, use a slider to pick the slide index
-slide_index = st.slider(
-    "Slide",
-    min_value=0,
-    max_value=len(image_paths) - 1,
-    value=st.session_state.get("slide_index", 0),
-    format="%d"
-)
+    slide_index = st.slider(
+        "Slide",
+        min_value=0,
+        max_value=len(image_paths) - 1,
+        value=st.session_state.get("slide_index", 0),
+        format="%d"
+    )
 
-st.session_state.slide_index = slide_index
+    st.session_state.slide_index = slide_index
 
 # Show the image and caption for the current slide
-img = Image.open(image_paths[st.session_state.slide_index])
-st.image(img, use_container_width=True, caption=captions[st.session_state.slide_index])
     img = Image.open(image_paths[st.session_state.slide_index])
     st.image(img, use_container_width=True, caption=captions[st.session_state.slide_index])
-
-    st.markdown("---")
-    st.markdown("### 💌 Una aventura para el amor de mi vida. I can't wait to experience this with you. Thank you for being my everything. ❤️")
+        img = Image.open(image_paths[st.session_state.slide_index])
+        st.image(img, use_container_width=True, caption=captions[st.session_state.slide_index])
+        st.markdown("---")
+        st.markdown("### 💌 Una aventura para el amor de mi vida. I can't wait to experience this with you. Thank you for being my everything. ❤️")
 
 # --- Footer ---
 st.markdown("---")
