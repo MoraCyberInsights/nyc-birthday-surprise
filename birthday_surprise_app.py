@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 # --- Load Media ---
-personal_photo = Image.open("images/us_photo.jpg")  # Replace with your actual image
+personal_photo = Image.open("images/us_together.jpg")  # Replace with your actual image
 header_image = Image.open("images/nyc_skyline.jpg")  # Ensure this image exists in ./images
 
 # --- Initial UI ---
