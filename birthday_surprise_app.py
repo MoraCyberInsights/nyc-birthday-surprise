@@ -111,7 +111,7 @@ else:
         "Carbone",
         "Ceres Pizza",
         "Katz's Delicatessen",
-        "Lafayette",
+        "Larfayette",
         "CitizenM Bowery Hotel",
         "Pastis"
     ]
