@@ -130,8 +130,6 @@ st.session_state.slide_index = slide_index
 # Show the image and caption for the current slide
 img = Image.open(image_paths[st.session_state.slide_index])
 st.image(img, use_container_width=True, caption=captions[st.session_state.slide_index])
-
-
     img = Image.open(image_paths[st.session_state.slide_index])
     st.image(img, use_container_width=True, caption=captions[st.session_state.slide_index])
 
