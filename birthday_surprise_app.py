@@ -20,13 +20,13 @@ header_image = Image.open("images/nyc_skyline.jpg")  # Ensure this image exists 
 
 # --- Initial UI ---
 st.image(personal_photo, use_container_width=True)
-st.markdown("<h1 style='text-align: center; color: #FF4B4B;'>Happy Birthday! 🎂💕</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #FF4B4B;'>Happy Birthday! 🎂</h1>", unsafe_allow_html=True)
 
 if "reveal_trip" not in st.session_state:
     st.session_state.reveal_trip = False
 
 if not st.session_state.reveal_trip:
-    if st.button("🎁 Tap to Reveal Your Birthday Destination!"):
+    if st.button("🎁 Tap to Reveal Surprise Destination!"):
         st.session_state.reveal_trip = True
 else:
     st.image(header_image, use_container_width=True)
@@ -116,7 +116,7 @@ else:
     if "slide_index" not in st.session_state:
         st.session_state.slide_index = 0
 
-    col1, col2, col3 = st.columns([1, 6, 1])
+    col1, col2, col3 = st.columns([1, 0.5, 1])
 
     with col1:
         if st.button("⬅️"):
