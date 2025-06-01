@@ -131,7 +131,6 @@ else:
     img = Image.open(image_paths[st.session_state.slide_index])
     st.image(img, use_container_width=True, caption=captions[st.session_state.slide_index])
     img = Image.open(image_paths[st.session_state.slide_index])
-    st.image(img, use_container_width=True, caption=captions[st.session_state.slide_index])
     st.markdown("---")
     st.markdown("### 💌 Una aventura para el amor de mi vida. I can't wait to experience this with you. Thank you for being my everything. ❤️")
 
